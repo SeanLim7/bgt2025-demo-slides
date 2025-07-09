@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+        <link rel="stylesheet" href="css/style.css">
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/classic-light.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides" class="r-stack">
+                <section data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                    <p class="title">The Tool: Shrink Line</p>
+                    <img src="images/shrink_line_gp_pane.jpg" alt="image of the shrink line tool">
+                    <aside class="notes">
+                        This is the tool I will be using for the demos today | Talk about what the tool does | It takes a line feature and reduces its length
+                    </aside>
+                </section>
+
+				<section id="parameters" data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                    <p class="title">Overview of Parameters</p>
+                    <img src="images/param_overview.jpg" alt="image of the parameters"></a>
+                    <aside class="notes">
+                        Talk about how parameters are indexed (starting from 0)
+                    </aside>
+                    <a href="#/code-param" style="font-size: 20px">Back to source code</a>
+                </section>
+
+                <section data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                    <p class="title">Input Feature Class</p>
+                    <img src="images/param_0.jpg" alt="image of parameter 0"></a>
+                    <p class="fragment" style="font-size: 60%">The Feature Layer datatype lets you pick a layer from your map using the drop-down.</p>
+                    <aside class="notes">
+                        Feature layers represent feature classes |
+                        | (Show Fragment) they also allow users to pick a layer from their map using the drop-down
+                    </aside>
+                </section>
+
+                <section data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                    <p class="title">Feature Type Filter</p>
+                    <img src="images/feature_type_filter.jpg" alt="image of feature type filter">
+                    <p class="fragment" style="font-size: 60%">Limit features to lines only.</p>
+                    <aside class="notes">
+                        By using a filter for the Feature Type, we can limit features to lines only
+                    </aside>
+                </section>
+
+                <section data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                    <p class="title">Output Feature Class</p>
+                    <img src="images/param_1.jpg" alt="image of parameter 1">
+                    <aside class="notes">
+                        Feature class allows user to browse to where they'd like the output to be
+                    </aside>
+                </section>
+
+                <section data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                    <p class="title">Method</p>
+                    <img src="images/param_2.jpg" alt="image of parameter 2">
+                    <aside class="notes">
+                        This parameter lets the user pick how they would like to shrink the line |
+                        String data type since we will be using our own values |
+                        Value list filter contains the values that the user will see as options |
+                        Percentage is the next parameter, and we are using that as the default
+                    </aside>
+                </section>
+
+                <section data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                    <p class="title">Value List Filter</p>
+                    <img src="images/value_list_filter.jpg" alt="image of value list filter">
+                    <aside class="notes">
+                        The user is given two options. You can use the value list filter to add options that you
+                        want to limit the user to
+                    </aside>
+                </section>
+
+                <section data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                    <p class="title">Percentage (%)</p>
+                    <img src="images/param_3.jpg"></a>
+                </section>
+
+                <section data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                    <p class="title">Range Filter</p>
+                    <img src="images/range_filter.jpg">
+                    <p class="fragment" style="font-size: 60%">Limit the parameter to a numerical range.</p>
+                    <aside class="notes">
+                        The range filter allows you to limit the user to a numerical range. In this case,
+                        we're limiting it from 0 to 100 since it's a percentage (and we don't want users to try to extend a line)
+                    </aside>
+                </section>
+
+                <section data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                    <p class="title">Length</p>
+                    <img src="images/param_4.jpg"></a>
+                    <aside class="notes">
+                        This is the second method the user can use to shrink a line. It adopts the same unit used by the input feature class.
+                    </aside>
+                </section>
+
+                <section id="code-param" data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                    <p class="title">Source Code</p>
+                    <pre><code class="language-python" data-trim data-line-numbers="4-9|11-13">
+                        import arcpy
+                        import os
+
+                        # Initialize parameters
+                        in_fc = arcpy.GetParameter(0)
+                        out_fc = arcpy.GetParameterAsText(1)
+                        method = arcpy.GetParameter(2)
+                        percentage = arcpy.GetParameter(3)/100
+                        length = arcpy.GetParameter(4)
+
+                        # Create output fc
+                        out_ws, out_name = os.path.split(out_fc)
+                        arcpy.management.CreateFeatureclass(out_ws, out_name, template=in_fc, 
+                                                            spatial_reference=arcpy.Describe(in_fc).SpatialReference)
+                    </code></pre>
+                    <p class="fragment" style="font-size: 60%">Create output features</p>
+                    <a href="#/parameters" style="font-size: 30px">Refer to parameters</a>
+                    <aside class="notes">
+                        First, we initialize all the parameters, once again starting from an index of 0
+                    </aside>
+                </section>
+
+                <section data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                    <p class="title"></p>
+                    <img src="">
+                    <aside class="notes">
+                        
+                    </aside>
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+                slideNumber: "c/t",
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+			});
+		</script>
+	</body>
+</html>
