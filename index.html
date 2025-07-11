@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Building Geoprocessing Tools: Demos</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
@@ -16,11 +16,20 @@
 	<body>
 		<div class="reveal">
 			<div class="slides" class="r-stack">
-                <section data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
-                    <p class="title">The Tool: Shrink Line</p>
+                <section id="info" data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                    <p class="title">Scan for demo slides</p>
+                    <img src="images/qr_code.png" alt="image of QR code" style="max-width: 50%; height: auto;">
+                    <br>
+                    <a href="https://seanlim7.github.io/test-revealjs/" style="font-size: 60%">https://seanlim7.github.io/test-revealjs/ (change later)</a>
+                </section>
+
+                <section id="tool-demo" data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                    <p class="title">Demo: Shrink Line</p>
                     <img src="images/shrink_line_gp_pane.jpg" alt="image of the shrink line tool">
                     <aside class="notes">
-                        This is the tool I will be using for the demos today | Talk about what the tool does | It takes a line feature and reduces its length
+                        - This is the tool that will be used for the demos today <br>
+                        - The tool shrinks a line <br>
+                        - Choose percentage or length as methods to shrink a line <br>
                     </aside>
                 </section>
 
@@ -28,84 +37,90 @@
                     <p class="title">Overview of Parameters</p>
                     <img src="images/param_overview.jpg" alt="image of the parameters"></a>
                     <aside class="notes">
-                        Talk about how parameters are indexed (starting from 0)
+                        - Talk about how parameter index is shown on left column and how it starts from 0 <br>
+                        - Five parameters <br>
                     </aside>
-                    <a href="#/code-param" style="font-size: 20px">Back to source code</a>
+                    <a href="#/source-code" style="font-size: 20px">Back to source code</a>
                 </section>
 
-                <section data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                <section id="input" data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
                     <p class="title">Input Feature Class</p>
                     <img src="images/param_0.jpg" alt="image of parameter 0"></a>
-                    <p class="fragment" style="font-size: 60%">The Feature Layer datatype lets you pick a layer from your map using the drop-down.</p>
+                    <p style="font-size: 60%">The Feature Layer datatype allows users to pick a layer from the map using the drop-down arrow.</p>
                     <aside class="notes">
-                        Feature layers represent feature classes |
-                        | (Show Fragment) they also allow users to pick a layer from their map using the drop-down
+                        - Feature layers represent feature classes <br>
+                        - They also allow users to pick a layer from their map using the drop-down arrow <br>
                     </aside>
                 </section>
 
-                <section data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                <section id="feature-type" data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
                     <p class="title">Feature Type Filter</p>
                     <img src="images/feature_type_filter.jpg" alt="image of feature type filter">
-                    <p class="fragment" style="font-size: 60%">Limit features to lines only.</p>
+                    <p style="font-size: 60%">Limit features to lines only.</p>
                     <aside class="notes">
-                        By using a filter for the Feature Type, we can limit features to lines only
+                        - By using a filter for the Feature Type, we can limit features to lines only <br>
                     </aside>
                 </section>
 
-                <section data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                <section id="output" data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
                     <p class="title">Output Feature Class</p>
                     <img src="images/param_1.jpg" alt="image of parameter 1">
                     <aside class="notes">
-                        Feature class allows user to browse to where they'd like the output to be
                     </aside>
                 </section>
 
-                <section data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                <section id="method" data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
                     <p class="title">Method</p>
                     <img src="images/param_2.jpg" alt="image of parameter 2">
                     <aside class="notes">
-                        This parameter lets the user pick how they would like to shrink the line |
-                        String data type since we will be using our own values |
-                        Value list filter contains the values that the user will see as options |
-                        Percentage is the next parameter, and we are using that as the default
+                        - This parameter lets the user pick how they would like to shrink the line <br>
+                        - String data type since we will be using our own values <br>
+                        - Value list filter contains the values that the user will see as options <br>
+                        - Percentage is the next parameter, and we are using that as the default <br>
                     </aside>
                 </section>
 
-                <section data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                <section id="value-list" data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
                     <p class="title">Value List Filter</p>
                     <img src="images/value_list_filter.jpg" alt="image of value list filter">
                     <aside class="notes">
-                        The user is given two options. You can use the value list filter to add options that you
-                        want to limit the user to
+                        - The user is given two options. You can use the value list filter to add options that you
+                        want to limit the user to <br>
                     </aside>
                 </section>
 
-                <section data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                <section id="percentage" data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
                     <p class="title">Percentage (%)</p>
                     <img src="images/param_3.jpg"></a>
-                </section>
-
-                <section data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
-                    <p class="title">Range Filter</p>
-                    <img src="images/range_filter.jpg">
-                    <p class="fragment" style="font-size: 60%">Limit the parameter to a numerical range.</p>
                     <aside class="notes">
-                        The range filter allows you to limit the user to a numerical range. In this case,
-                        we're limiting it from 0 to 100 since it's a percentage (and we don't want users to try to extend a line)
+                        - Double data type is used since we are converting it to decimal <br>
+                        - Range filter is used to limit possible values <br>
+                        - Default of 10
                     </aside>
                 </section>
 
-                <section data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                <section id="range-filter" data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                    <p class="title">Range Filter</p>
+                    <img src="images/range_filter.jpg">
+                    <p style="font-size: 60%">Limit the parameter to a numerical range.</p>
+                    <aside class="notes">
+                        - The range filter allows you to limit the user to a numerical range <br>
+                        - In this case, we're limiting it from 0 to 100 since it's a percentage (and we don't want users to try to extend a line) <br>
+                    </aside>
+                </section>
+
+                <section id="length" data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
                     <p class="title">Length</p>
                     <img src="images/param_4.jpg"></a>
                     <aside class="notes">
-                        This is the second method the user can use to shrink a line. It adopts the same unit used by the input feature class.
+                        - This is the second method the user can select to shrink a line <br>
+                        - It adopts the same unit used by the input feature class <br>
                     </aside>
                 </section>
 
-                <section id="code-param" data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                <section id="source-code" data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
                     <p class="title">Source Code</p>
-                    <pre><code class="language-python" data-trim data-line-numbers="4-9|11-13">
+                    <pre><code class="language-python" data-trim data-line-numbers="4-9|11-16">
                         import arcpy
                         import os
 
@@ -118,21 +133,157 @@
 
                         # Create output fc
                         out_ws, out_name = os.path.split(out_fc)
-                        arcpy.management.CreateFeatureclass(out_ws, out_name, template=in_fc, 
-                                                            spatial_reference=arcpy.Describe(in_fc).SpatialReference)
+                        arcpy.management.CreateFeatureclass(
+                            out_ws, out_name, template=in_fc, 
+                            spatial_reference=arcpy.Describe(in_fc).SpatialReference
+                        )                
                     </code></pre>
-                    <p class="fragment" style="font-size: 60%">Create output features</p>
                     <a href="#/parameters" style="font-size: 30px">Refer to parameters</a>
                     <aside class="notes">
-                        First, we initialize all the parameters, once again starting from an index of 0
+                        - Parameters are initialized to retrieve the values entered by the user <br>
+                        - Each parameter has an index and the count starts at 0 <br>
+                        - The arrangement matches what you select in the Parameters tab (click on "Refer to parameters")<br>
+                        - (next) Line 12 - we split the output into a directory and name <br>
+                        - Use CreateFeatureclass to create the output feature class <br>
+                        - We use the input feature class as a template and the spatial reference of the input feature class <br>
                     </aside>
                 </section>
 
-                <section data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
-                    <p class="title"></p>
-                    <img src="">
+                <section id="source-code-2" data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                    <p class="title">Source Code</p>
+                    <pre><code class="language-python" data-trim data-line-numbers="1-2|3-4|5-6|7-17|18-25|26-39" data-ln-start-from="18">
+                        # Open insert cursor for output fc
+                        with arcpy.da.InsertCursor(out_fc, ['SHAPE@']) as in_cursor:
+                            # Open search cursor for input fc
+                            with arcpy.da.SearchCursor(in_fc, ['SHAPE@']) as cursor:
+                                # Go through rows in input fc
+                                for row in cursor:
+                                    if row[0] is not None:
+                                        # Get length of line
+                                        line_len = row[0].length
+                                        # If user selected "Percentage"
+                                        if method == "Percentage":
+                                            # Exit loop if user provided a value of 0
+                                            if percentage == 0.0:
+                                                arcpy.AddWarning('Percentage was not provided'
+                                                                ' or value was 0. Output feature'
+                                                                ' class may be empty.')
+                                                break
+                                            else:
+                                                # Calculate shrink value
+                                                shrink = percentage * line_len * 0.5
+                                                # Get segment of line using percentage
+                                                # The segment is now the new shortened line
+                                                segment = row[0].segmentAlongLine(shrink, line_len - shrink)
+                                                # Insert the new line into the output fc
+                                                in_cursor.insertRow([segment])
+                                        # If user did not select "Percentage"
+                                        else:
+                                            # Get segment of line using distance
+                                            if length != '' and length != 0.0:
+                                                shrink = float(length) * 0.5
+                                                segment = row[0].segmentAlongLine(shrink, line_len - shrink)
+                                                # Insert new line into the output fc
+                                                in_cursor.insertRow([segment])
+                                            # Exit loop if user provided a value of 0 or no value was provided
+                                            else:
+                                                arcpy.AddWarning('Length was not provided'
+                                                                ' or value was 0. Output feature'
+                                                                ' class may be empty.')
+                                                break
+                    </code></pre>
+                    <p style="font-size: 60%"></p>
+                    <a href="https://pro.arcgis.com/en/pro-app/latest/arcpy/classes/polyline.htm" style="font-size: 25px">
+                        For more information on the segmentAlongLine method
+                    </a>
+                    <br>
+                    <a href="https://pro.arcgis.com/en/pro-app/latest/arcpy/get-started/reading-geometries.htm" style="font-size: 25px">
+                        For more information on geometry tokens
+                    </a>
                     <aside class="notes">
-                        
+                        - Insert cursor to add features to the output feature class - uses geometry token <br>
+                        - (next) Search cursor to go through features in the input feature class - uses geometry token <br>
+                        - (next) For loop to go through each row in the input feature using the search cursor <br>
+                        - (next) Get line length, row[0] represents the Shape@ geometry object <br>
+                        - Exit loop and throw warning if user enters 0 <br>
+                        - (next) Do math, segmentAlongLine method from geometry object to return the segmented line <br>
+                        - Insert new segmented line to output feature class using insert cursor <br>
+                        - (next) IF user selected Length method, throw warning and end if empty value or 0 <br>
+                        - Same as above, make a segment then insert into output feature class <br>
+                        - Links to documentation for more information <br>
+                    </aside>
+                </section>
+
+                <section id="validation-code" data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                    <p class="title">Validation Code</p>
+                    <pre><code class="language-python" data-trim data-line-numbers="13-25|27-35">
+                        class ToolValidator:
+                            # Class to add custom behavior and properties to the tool and tool parameters.
+
+                                def __init__(self):
+                                    # set self.params for use in other function
+                                    self.params = arcpy.GetParameterInfo()
+
+                                def initializeParameters(self):
+                                    # Customize parameter properties. 
+                                    # This gets called when the tool is opened.
+                                    return
+
+                                def updateParameters(self):
+                                    # Modify parameter values and properties.
+                                    # This gets called each time a parameter is modified, before 
+                                    # standard validation.
+                                    
+                                    # Enable parameter when user selects it
+                                    if self.params[2].value == "Percentage":
+                                        self.params[4].enabled = False
+                                        self.params[3].enabled = True
+                                    elif self.params[2].value == "Length":
+                                        self.params[3].enabled = False
+                                        self.params[4].enabled = True
+                                    return
+
+                                def updateMessages(self):
+                                    # Customize messages for the parameters.
+                                    # This gets called after standard validation.
+                                    
+                                    # Prevents user from entering negative value for length
+                                    if isinstance(self.params[4].value, float):
+                                        if self.params[4].value < 0:
+                                            self.params[4].setErrorMessage('value cannot be negative') 
+                                    return
+
+                                # def isLicensed(self):
+                                #     # set tool isLicensed.
+                                # return True
+
+                                # def postExecute(self):
+                                #     # This method takes place after outputs are processed and
+                                #     # added to the display.
+                                # return
+
+                    </code></pre>
+                    <p style="font-size: 60%"></p>
+                    <aside class="notes">
+                        - In updateParameters method, we are enabling the Percentage and Length parameters
+                        based on what the user selects <br>
+                        - Index 2 is the Method parameter, 3 is percentage, and 4 is length <br>
+                        - (next) In updateMessages method, checking if length value is negative, throw error if it is <br>
+                        - The reason we have this in the validation instead of the source code is because we
+                        don't want the user to run the tool with a negative value and cause other errors <br>
+                    </aside>
+                </section>
+
+                <section id="gp-sample" data-background-gradient="linear-gradient(to right, rgb(0,141,222), rgb(12,71,153))">
+                    <p class="title">Demo: creating a Geoprocessing sample</p>
+                    <a href="https://pro.arcgis.com/en/pro-app/latest/help/analysis/geoprocessing/share-analysis/geoprocessing-samples.htm">Guide for Geoprocessing samples</a>
+                    <aside class="notes">
+                        - Grab your script file from Properties <br>
+                        - Put it in the folder structure along with your .atbx file, compress to .zip <br>
+                        - Log into arcgis.com <br>
+                        - Content tab > New item > drag and drop zip file <br>
+                        - Select Geoprocessing sample from list
+                        - Show how it can be accessed through Catalog Portal tab
                     </aside>
                 </section>
 			</div>
