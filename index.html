@@ -99,6 +99,7 @@
                     <img src="images/param_3.jpg"></a>
                     <aside class="notes">
                         - Double data type is used since we are converting it to decimal <br>
+                        - Optional is used to allow us to hide/disable the parameter using validation later on <br>
                         - Range filter is used to limit possible values <br>
                         - Default of 10
                     </aside>
@@ -150,7 +151,7 @@
                         - The arrangement matches what you select in the Parameters tab (click on "Refer to parameters")<br>
                         - (next) Line 12 - we split the output into a directory and name <br>
                         - Use CreateFeatureclass to create the output feature class <br>
-                        - We use the input feature class as a template and the spatial reference of the input feature class <br>
+                        - We use the input feature class as a template and the spatial reference of the input feature class so that our output feature class' unit matches the input fc <br>
                     </aside>
                 </section>
 
@@ -158,7 +159,7 @@
                     <p class="title">Source Code</p>
                     <pre><code class="language-python" data-trim data-line-numbers="1-2|3-4|5-6|7-17|18-25|26-39" data-ln-start-from="18">
                         # Open insert cursor for output fc
-                        with arcpy.da.InsertCursor(out_fc, ['SHAPE@']) as in_cursor:
+                        with arcpy.da.InsertCursor(out_fc) as in_cursor:
                             # Open search cursor for input fc
                             with arcpy.da.SearchCursor(in_fc, ['SHAPE@']) as cursor:
                                 # Go through rows in input fc
@@ -206,8 +207,9 @@
                         For more information on geometry tokens
                     </a>
                     <aside class="notes">
-                        - Insert cursor to add features to the output feature class - uses geometry token <br>
-                        - (next) Search cursor to go through features in the input feature class - uses geometry token <br>
+                        - Insert cursor to add features to the output feature class <br>
+                        - (next) Search cursor to go through features in the input feature class <br>
+                        - Shape@ geometry object allows us to find details about that row, in this case, length <br>
                         - (next) For loop to go through each row in the input feature using the search cursor <br>
                         - (next) Get line length, row[0] represents the Shape@ geometry object <br>
                         - Exit loop and throw warning if user enters 0 <br>
